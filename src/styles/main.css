@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #00aaff; 
+  --primary-hover: #0077cc;
+  --background-color: #121212;
+  --card-background: #1e1e1e; 
+  --text-color: rgba(255, 255, 255, 0.87); 
+  --heading-color: #ffffff; 
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-radius: 10px;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  --glow-shadow: 0 0 15px -2px var(--primary-color);
+  --transition-speed: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 80px auto 0;
+}
+
+.navbar {
+  background-color: rgba(30, 30, 30, 0.8); 
+  backdrop-filter: blur(10px); 
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    background: linear-gradient(45deg, var(--primary-color), #00ff87);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color var(--transition-speed) ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width var(--transition-speed) ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+/* Section Styling */
+.section {
+  background-color: transparent;
+  margin-bottom: 4rem;
+  padding-top: 80px;
+  margin-top: -80px;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+}
+
+
+.card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-color);
+  box-shadow: var(--glow-shadow);
+}
+
+.card a {
+  display: flex; 
+  align-items: center;
+  gap: 12px; 
+  padding: 1.5rem;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color var(--transition-speed) ease, background-color var(--transition-speed) ease;
+}
+
+.card a:hover {
+  color: var(--primary-color);
+}
+
+
+.playlists .card a::before {
+  content: '▶'; 
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+.articles .card a::before {
+  content: '📄'; 
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.papers .card a::before {
+  content: '✍️'; 
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
